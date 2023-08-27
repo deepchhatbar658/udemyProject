@@ -1,0 +1,13 @@
+*{
+    margin: 0;padding: 0;
+}
+h1{
+    width: fit-content;
+    background-color: aquamarine;
+    color:rebeccapurple
+}
+
+img{
+    width: 100%;
+    height: 100%;
+}
