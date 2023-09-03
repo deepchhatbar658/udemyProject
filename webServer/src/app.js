@@ -32,10 +32,18 @@ app.get('/help',(req,res)=>{
         footers:"Created by deep",
     })
 })
-app.get('/weather', (req, res) => {
+// app.get('/weather', (req, res) => {
+//     res.send({
+//         forecast: 50,
+//         location: "ahmedabad"
+//     })
+// })
+app.get('/weather',(req,res)=>{
+    if(!req.query.address){
+        return res.send({error:'please provide address'})
+    }
     res.send({
-        forecast: 50,
-        location: "ahmedabad"
+        address:req.query.address
     })
 })
 app.get('/help/*',(req,res)=>{
