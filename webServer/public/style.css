@@ -62,3 +62,38 @@ ul{
     border-top: 1px  solid #bcbcbc;
     padding-top: 16px;
  }
+ input{
+   border-radius: 0.5rem;
+   border: 1px solid black;
+   padding: 8px;
+   margin-right: 8px;
+
+ }
+ form{
+   margin-top: 30px;
+ }
+ .form{
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   flex-direction: column;
+   width: fit-content;
+   margin: 0 auto;
+   
+ }
+ #message-1 , #message-2{
+   margin-top: 16px;
+   background-color: rgb(58, 71, 76);
+   color:white;
+   width:calc(100% - 10px);
+   text-align: center;
+   border-radius: 0.3rem;
+   
+ }
+ button{
+   border-radius: 0.5rem;
+   cursor: pointer;
+   padding: 8px;
+   background-color: black;
+   color: white;
+ }

@@ -5,7 +5,8 @@ const { title } = require('process');
 const app = express();
 const pathToPublic = path.join(__dirname, '../public')
 const pathToPartial = path.join(__dirname, '../partials')
-
+const geoCode= require('./utils/geoCode')
+const foreCast= require('./utils/foreCast')
 
 // console.log(__dirname)
 // console.log(path.join(__dirname,'../public'))
@@ -42,8 +43,20 @@ app.get('/weather',(req,res)=>{
     if(!req.query.address){
         return res.send({error:'please provide address'})
     }
-    res.send({
-        address:req.query.address
+    geoCode(req.query.address,(error,response={})=>{
+        error ? console.log(error) :
+        foreCast(response.longitude, response.latitude, (error, data) => {
+            error ? console.log(error) :
+                console.log(response.address)
+            console.log("data", data)
+
+            res.send({
+                address:response.address,
+                longitude:response.longitude,
+                latitude:response.latitude,
+                data:data,
+            })
+        })
     })
 })
 app.get('/help/*',(req,res)=>{
